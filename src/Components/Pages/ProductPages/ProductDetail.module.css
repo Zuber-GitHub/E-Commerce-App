@@ -1,0 +1,36 @@
+.addButton:hover{
+    background-color: rgb(79, 183, 224);
+}
+
+.addButton{
+    float: right;
+    margin-right: 44%;
+    border: 1px solid skyblue;
+    background-color: skyblue;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    margin-top: 45px;
+    
+
+}
+.addButton:active{
+    transform: translateY(1px);
+};
+.addButton:hover{
+    background-color: rgb(79, 183, 224);
+}
+
+
+
+.productContainer{
+    float:left;
+    padding-top: 125px;
+    margin-left: 50px;
+    padding-bottom: 140px;
+};
+

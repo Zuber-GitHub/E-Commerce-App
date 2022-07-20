@@ -1,0 +1,26 @@
+.mainHeading{
+    text-align: center;
+    padding-top: 10px;
+    
+}
+
+.aboutContent{
+    width: 25%;
+    text-align: justify;
+    margin-left: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    padding-bottom: 32px;
+    float: left   
+};
+.aboutImage{
+    float: right;
+    width: 800px;
+    height: 355px;
+   
+}
+
+
+
+
+

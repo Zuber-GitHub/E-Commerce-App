@@ -1,0 +1,57 @@
+
+
+.navButtons{
+    text-align: center;
+    margin-left: 100px;
+    
+
+}
+
+.navButtonsNavigation{
+    background-color: black;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    padding-right: 30px;
+    padding-left: 30px;
+    text-decoration: none;
+    border-radius: 15px;
+    
+  
+}
+
+.cartButton{
+    float: right;
+    background-color: black;
+    color: white;
+    font-size: large;
+    border: 3px solid skyblue;
+    border-Radius: 10px;
+    transition: 0.4s;
+}
+.cartButton:hover{
+    transform: scale(1.05);
+}
+.navButtonsNavigation:hover{
+    background-color: skyblue;
+}
+
+.cartCount{
+    background-color: skyblue;
+    border: 10px solid none;
+    margin-left: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+.mainHeader{
+    border: 10px solid black;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+  
+    
+}
+
+
+    

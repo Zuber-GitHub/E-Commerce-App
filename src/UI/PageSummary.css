@@ -1,0 +1,16 @@
+.pageSummary{
+    background-color: gray;
+    border-bottom: 30px solid gray;
+    border-top: 1px solid gray;
+    text-align: center;
+    padding-bottom: 30x;
+
+}
+
+.pageText{
+    color: white;
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
