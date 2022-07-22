@@ -3,6 +3,7 @@ import CartContext from "./cart-contetxt";
 const CartProvider = props =>{
     
     let [isItems, setIsItems] = useState([]);
+    let [isCreds, setIsCreds] = useState(localStorage.getItem('loginToken'));   
     const addItemHandler= (item)=>{
         const filteredList = isItems.filter((lst)=>lst.title===item.title);
         if(filteredList.length!=0){
@@ -59,14 +60,28 @@ const CartProvider = props =>{
         addItemHandler(item);
 
     };
+    
+    const addCredsHandler = (credential)=>{
+        setIsCreds(credential)
+    }
+
+    const logOutHandler  = ()=>{
+        setIsCreds(null)
+        localStorage.clear('loginToken')
+    }
+    const userLoggedIn = !!isCreds;
     const cartContext = {
+        creds:isCreds,
         items:isItems,
         totalAMount:0,
         addItem: addItemHandler,
         removeItem: removeItemHandler,
         purchaseItem:purchaseItemHandler,
         minusItem:minusItemHandler,
-        plusItem:plusItemHandler
+        plusItem:plusItemHandler,
+        addCreds:addCredsHandler,
+        logOut:logOutHandler,
+        isLoggedIn:userLoggedIn,
     };
     return(
         <CartContext.Provider value={cartContext}>
