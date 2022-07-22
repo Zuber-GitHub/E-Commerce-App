@@ -3,15 +3,18 @@ import PageSummary from "./UI/PageSummary";
 import Store from "./Components/Store/Store";
 import Footer from "./Layout/Footer";
 import Cart from "./Components/Cart/Cart";
-import React,{useState } from "react";
-import CartProvider from "./Components/Context/CartProvider";
-import { Route,Switch } from "react-router-dom";
+import React,{useContext, useState} from "react";
+import CartContext from "./Components/Context/cart-contetxt";
+import { Redirect, Route,Switch,useHistory } from "react-router-dom";
 import About from "./Components/Pages/About";
 import Home from "./Components/Pages/Home";
 import Contact from "./Components/Pages/Contact";
 import ProductDetails from "./Components/Pages/ProductPages/ProductDetail";
+import LoginPage from "./Components/Pages/ProductPages/LoginPage";
 
 function App() {
+  const history = useHistory();
+  const cartCtx = useContext(CartContext);
   const [cartClicked, setCartClicked] = useState(false);
   const [product, setProduct] = useState({});
   const cartDisplayHandler = () => {
@@ -21,6 +24,7 @@ function App() {
   const cartDisplayHider = () => {
     setCartClicked(false);
   };
+
 
   const productsArr = [
     {
@@ -72,7 +76,7 @@ function App() {
 
   return (
     <>
-      <CartProvider>
+      
         <Header onClose={cartDisplayHandler}></Header>
         <Switch>
               <Route path='/Home'>
@@ -81,18 +85,19 @@ function App() {
               <div> <Home/></div>
               </Route>
 
-              <Route path="/Store" exact>
-                <PageSummary></PageSummary>
-                <Store storeItems={productsArr} productDetails={productDetails}></Store>
+         <Route path="/Store" exact>
+          {cartCtx.isLoggedIn && <> <PageSummary></PageSummary>
+           <Store storeItems={productsArr} productDetails={productDetails}></Store>
+           {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}</>}
+           </Route>
+           
 
-                {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
-              </Route>
-              <Route path="/About">
-                <div>
-                  {'Helper'}<About></About>
-                </div>
-                
-              </Route>
+          <Route path="/About">
+            <div>
+              {'Helper'}<About></About>
+            </div>
+            
+          </Route>
               <Route path='/Contact'>
                 <Contact></Contact>
                 {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
@@ -103,10 +108,13 @@ function App() {
 
               </Route>
 
+       <Route path='/Login'>
+                <LoginPage></LoginPage>
+              </Route>
         </Switch>
     
         <Footer></Footer>
-      </CartProvider>
+      
     </>
   );
 }

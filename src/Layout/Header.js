@@ -8,6 +8,14 @@ import './Header.css'
 const Header = (props)=>{
     const cartCtx = useContext(CartContext);
     const cartCount = cartCtx.items.reduce((accumulator, curItem)=>{return accumulator + curItem.quantity},0);
+    const isLoggedIn  = cartCtx.isLoggedIn;
+    let goto;
+    if(isLoggedIn){
+        goto = '/Store'
+    }
+    else{
+        goto = '/Login'
+    }
 
     
     return(
@@ -16,10 +24,10 @@ const Header = (props)=>{
             <nav className="navButtons">
                 
                 <Link to='/Home' className="navButtonsNavigation">Home</Link>
-                <Link to='/Store' className="navButtonsNavigation">Store</Link>
+                <Link to={goto} className="navButtonsNavigation">Store</Link>
                 <Link to='/About' className="navButtonsNavigation">About</Link>
                 <Link to='/Contact' className="navButtonsNavigation">Contact</Link>
-                
+                <Link to='/Login' className="navButtonsNavigation">Log In</Link>
                 <button className="cartButton" onClick={props.onClose}><span>Cart</span><span className="cartCount">{cartCount}</span></button>
  
             </nav>

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import classes from './ProductDetail.module.css'
 import CartContext from "../../Context/cart-contetxt";
 import ReactImageMagnify from "react-image-magnify";
-import largeImage from  '../../../assests/largeImage.png'
 const ProductDetails = (props)=>{
     const cartCtx = useContext(CartContext);
     return(
